@@ -1,0 +1,171 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="TelefonWeb.Yonetim.Admin" %>
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>FN İletişim Admin</title>
+    <link rel="stylesheet" href="assest2/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="assest2/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="assest2/css/style.css">
+    <link rel="shortcut icon" href="assest2/images/favicon.png" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<body>
+    <form runat="server">
+        <div class="container-scroller">
+            <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+                <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+                    <a class="navbar-brand brand-logo" href="Default2.aspx">
+                        <img src="assest2/images/FN3.jpg" alt="logo" /></a>
+                    <a class="navbar-brand brand-logo-mini" href="Default2.aspx">
+                        <img src="assest2/images/FN3.jpg" alt="logo" /></a>
+                </div>
+                <div class="navbar-menu-wrapper d-flex align-items-stretch">
+                    <ul class="navbar-nav navbar-nav-right">
+                        <li class="nav-item nav-profile dropdown">
+                            <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+                                <div class="nav-profile-img">
+                                    <img src="assest2/images/faces/fhm.jpg" alt="image">
+                                    <span class="availability-status online"></span>
+                                </div>
+                                <div class="nav-profile-text">
+                                    <p class="mb-1 text-black">
+                                        <asp:Label ID="lblkullanici2" runat="server" Text=""></asp:Label>
+                                    </p>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">
+                                    <i class="mdi mdi-logout mr-2 text-primary"></i>
+                                    <asp:Button ID="Button1" CssClass="btn" runat="server" Text="Çıkış" OnClick="Button1_Click" />
+                                </a>
+                            </div>
+                        </li>
+                        <li class="nav-item d-none d-lg-block full-screen-link">
+                            <a class="nav-link">
+                                <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
+                            </a>
+                        </li>
+
+                    </ul>
+                    <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+                        <span class="mdi mdi-menu"></span>
+                    </button>
+                </div>
+            </nav>
+            <div class="container-fluid page-body-wrapper">
+                <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                    <ul class="nav">
+                        <li class="nav-item nav-profile">
+                            <a href="#" class="nav-link">
+                                <div class="nav-profile-image">
+                                    <img src="assest2/images/faces/fhm.jpg" alt="profile">
+                                    <span class="login-status online"></span>
+                                </div>
+                                <div class="nav-profile-text d-flex flex-column">
+                                    <span class="font-weight-bold mb-2">
+                                        <asp:Label ID="lblkullanici1" runat="server" Text=""></asp:Label>
+                                    </span>
+                                    <span class="text-secondary text-small">CEO</span>
+                                </div>
+                                <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Default2.aspx">
+                                <span class="menu-title">Ana Sayfa</span>
+                                <i class="mdi mdi-home menu-icon"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="TelefonEkle.aspx">
+                                <span class="menu-title">Telefon Ekle</span>
+                                <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="TelefonDuzenleSil.aspx">
+                                <span class="menu-title">Telefon Düzenle/Sil</span>
+                                <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Stok.aspx">
+                                <span class="menu-title">Stok Kontrol</span>
+                                <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Siparis.aspx">
+                                <span class="menu-title">Siparişler</span>
+                                <i class="mdi mdi-chart-bar menu-icon"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="MarkaEkle.aspx">
+                                <span class="menu-title">Marka Ekle</span>
+                                <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ModelEkle.aspx">
+                                <span class="menu-title">Model Ekle</span>
+                                <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                            </a>
+                        </li>
+                        <%--<li class="nav-item">
+                            <a class="nav-link" href="StokDuzenle.aspx">
+                                <span class="menu-title">Stok Düzenle/Sil</span>
+                                <i class="mdi mdi-table-large menu-icon"></i>
+                            </a>
+                        </li>--%>
+
+                        <%--<li class="nav-item">
+                        <a class="nav-link" href="v">
+                            <span class="menu-title">Satışlar</span>
+                            <i class="mdi mdi-chart-bar menu-icon"></i>
+                        </a>
+                    </li>--%>
+                    </ul>
+                </nav>
+                <div class="main-panel">
+                    <div class="content-wrapper">
+                        <div class="page-header">
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                <h3 class="page-title">Form Sayfası  </h3>
+                            </asp:ContentPlaceHolder>
+                        </div>
+                        <div class="row">
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- container-scroller -->
+        <!-- plugins:js -->
+        <script src="./assest2/vendors/js/vendor.bundle.base.js"></script>
+        <script src="./assest2/vendors/js/vendor.bundle.addons.js"></script>
+        <!-- endinject -->
+        <!-- inject:js -->
+        <script src="./assest2/js/off-canvas.js"></script>
+        <script src="./assest2/js/misc.js"></script>
+        <!-- endinject -->
+        <!-- Custom js for this page-->
+        <script src="./assest2/js/file-upload.js"></script>
+        <!-- End custom js for this page-->
+    </form>
+</body>
+
+</html>
